@@ -1,5 +1,8 @@
 # Mailpiler as Docker
 
+All credits for docker image build to ebtcorg/docker-piler, 
+Pilerpurge did not worked so I created this repo
+
 [Piler](http://www.mailpiler.org/wiki/current:index) is a feature rich open source email archiving solution. This is a project to package it as a docker image.
 
 ## Mailpiler as Docker
@@ -27,7 +30,7 @@ Copy [docker-compose.yml](https://github.com/jakes/piler-docker/docker-compose.y
 
 ```
 mkdir piler && cd piler
-wget https://raw.githubusercontent.com/jakes670/piler-docker/master/docker-compose.yml -O docker-compose.yml
+wget https://raw.githubusercontent.com/jakes670/piler-docker/main/docker-compose.yml -O docker-compose.yml
 ``` 
 
 Edit the docker-compose.yml
