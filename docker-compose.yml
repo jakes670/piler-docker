@@ -1,0 +1,34 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: SqlrootPa55
+      MYSQL_USER: piler
+      MYSQL_PASSWORD: SqlpilerPa55
+      MYSQL_DATABASE: piler
+    volumes:
+      - /var/piler-mariadb:/var/lib/mysql
+
+  piler:
+    image: ebtc/piler
+    restart: always
+    ports:
+      - "25:25"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/piler-data:/var/piler
+      - /var/piler-config:/etc/piler
+      - /piler-docker/pilerpurge.py:/usr/libexec/piler/pilerpurge-jl.py
+      - /piler-docker/purge.sh:/usr/libexec/piler/purge-jl.sh
+    environment:
+      PILER_HOST: piler.host.co.za
+      MYSQL_HOSTNAME: db
+      MYSQL_ROOT_PASSWORD: SqlrootPa55
+      MYSQL_USER: piler
+      MYSQL_PASSWORD: SqlpilerPa55
+      
